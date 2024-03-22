@@ -15,5 +15,6 @@ export const localizableStrings = {
   invalidEmailError: "Enter a valid email.",
   invalidHomeUrlError: "Enter a valid home page URL.",
   unselectedTimeZoneError: "Please select a time zone",
-  goText: "GO"
+  goText: "GO",
+  chooseTimezoneText: "Choose time zones"
 }

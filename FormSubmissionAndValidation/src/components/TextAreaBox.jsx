@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { updateUser } from "../features/userSlice";
 import PropTypes from "prop-types";
+import { ErrorMessage } from "./ErrorMessage";
 
 export const TextAreaBox = (props) => {
   const fieldId = props.fieldId;
@@ -16,7 +17,7 @@ export const TextAreaBox = (props) => {
         value={field.value}
         onChange={(event) => dispatch(updateUser({id: field.id, value: event.target.value}))}
         />
-      {field.errorMessage != null ? <div className="error">{field.errorMessage}</div> : <div className="dummyHeight" />}
+      <ErrorMessage message={field.errorMessage} />
     </div>
    
   </>

@@ -1,8 +1,10 @@
-import "./App.css";
-import { UserForm } from "./components/UserForm";
+import './App.css'
+import { UserForm } from './components/UserForm'
 
 function App() {
-  return <UserForm />;
+  return (
+    <UserForm />
+  )
 }
 
-export default App;
+export default App
