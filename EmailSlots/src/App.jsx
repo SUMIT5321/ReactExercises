@@ -16,7 +16,7 @@ function App() {
       
       <br />
 
-      <Email senderName="Sumit" receiverName="Raj" salutation="Hello" regards="thanks">Hello, how are you</Email>
+      <Email senderName="Sumit" receiverName="Raj" salutation="Hello" regards="thanks">Hello, how are you?</Email>
     </>
   )
 }
