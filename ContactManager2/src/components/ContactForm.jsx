@@ -2,8 +2,9 @@ import { InputTextBox } from "./InputTextBox";
 import { EMAIL, FIRST_NAME, LAST_NAME, contactFieldValidator } from "../config/contactFormConfig";
 import { useCallback, useState } from "react";
 import PropTypes from "prop-types"
+import getUniqueId from "../utils/newId"
 
-export const ContactForm = ({ createContact }) => {
+export const ContactForm = ({ addContact }) => {
   const [formData, setFormData] = useState({});
   const [errorMessages, setErrorMessages] = useState({});
 
@@ -24,7 +25,8 @@ export const ContactForm = ({ createContact }) => {
     event.preventDefault();
     const areAllFieldsValid = contactFieldValidator.validateAllFields(formData, setErrorMessage);
     if (areAllFieldsValid) {
-      createContact(formData);
+      formData.id = getUniqueId();
+      addContact(formData);
       setFormData({})
     }
   }
@@ -39,5 +41,5 @@ export const ContactForm = ({ createContact }) => {
 
 
 ContactForm.propTypes = {
-  createContact: PropTypes.func
+  addContact: PropTypes.func
 }

@@ -4,21 +4,12 @@ import './App.css'
 import { ContactForm } from './components/ContactForm'
 import { ContactList } from './components/ContactList'
 import { Search } from './components/Search'
-import { EMAIL, FIRST_NAME, LAST_NAME } from './config/contactFormConfig'
-import getUniqueId from "./utils/newId"
 
 function App() {
   const [contactList, setContactList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const createContact = useCallback((data) => {
-    const contact = {
-      id: getUniqueId(),
-      firstName: data[FIRST_NAME],
-      lastName: data[LAST_NAME],
-      email: data[EMAIL]
-    }
-
+  const addContact = useCallback((contact) => {
     setContactList(list => [...list, contact])
   }, []);
 
@@ -37,7 +28,7 @@ function App() {
     <div className='container'>
       <div className='innerContainer'>
         <Search searchTerm={searchTerm} updateSearchTerm={setSearchTerm} />
-        <ContactForm createContact={createContact}/>
+        <ContactForm addContact={addContact}/>
         <ContactList contactList={listToShow} deleteContact={deleteContact} />
       </div>
     </div>
