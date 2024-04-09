@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
 import { ErrorMessage } from "./ErrorMessage";
-import React from "react";
 import { contactFormConfig } from "../config/contactFormConfig";
 
-export const InputTextBox = React.memo(function InputTextBox({ fieldId, value, errorMessage, updateValue }) {
+export const InputTextBox = ({ fieldId, value, errorMessage, updateValue }) => {
   const fieldLabel = contactFormConfig[fieldId].label;
   return <>
     <div>
@@ -16,7 +15,7 @@ export const InputTextBox = React.memo(function InputTextBox({ fieldId, value, e
       <ErrorMessage message={errorMessage} />
     </div>
   </>
-})
+}
 
 InputTextBox.propTypes = {
   fieldId: PropTypes.string,

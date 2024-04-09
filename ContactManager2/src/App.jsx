@@ -1,5 +1,5 @@
 
-import { useCallback, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import './App.css'
 import { ContactForm } from './components/ContactForm'
 import { ContactList } from './components/ContactList'
@@ -9,13 +9,13 @@ function App() {
   const [contactList, setContactList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const addContact = useCallback((contact) => {
+  const addContact = (contact) => {
     setContactList(list => [...list, contact])
-  }, []);
+  };
 
-  const deleteContact = useCallback((id) => {
+  const deleteContact = (id) => {
     setContactList(list => list.filter(item => id !== item.id))
-  }, []);
+  };
 
   const listToShow = useMemo(() => contactList.filter(({firstName, lastName, email}) => {
     const contactText = `${firstName} ${lastName} ${email}`.toLowerCase();

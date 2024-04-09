@@ -1,18 +1,19 @@
 import PropTypes from "prop-types"
-import React from "react"
 
-export const Contact = React.memo(function Contact({ contact, deleteContact }) {
+export const Contact = ({ contact, deleteContact }) => {
+  const {id, firstName, lastName, email} = contact;
+
   return <div className="card">
     <img src="../public/user.png" alt="Avatar" className="image"></img>
     <div className="cardContentContainer">
       <div className="fullAvailableWidth">
-        <div className="name">{contact.firstName} {contact.lastName}</div>
-        <div className="email">{contact.email}</div>
+        <div className="name">{firstName} {lastName}</div>
+        <div className="email">{email}</div>
       </div>
-      <button className="imageButton" onClick={() => deleteContact(contact.id)}><img className="icon" src="../public/delete.png"/></button>
+      <button className="imageButton" onClick={() => deleteContact(id)}><img className="icon" src="../public/delete.png"/></button>
     </div>
   </div>
-})
+}
 
 Contact.propTypes = {
   contact: PropTypes.object,
