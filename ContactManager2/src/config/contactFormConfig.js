@@ -20,12 +20,10 @@ export const contactFormConfig = {
 export const contactFieldValidator = {
   [FIRST_NAME]: function(value) {
     const errorMessage = validator.validateIsNotEmpty(contactFormConfig[FIRST_NAME].label, value)
-    //setErrorMessage(FIRST_NAME, errorMessage)
     return errorMessage;
   },
   [LAST_NAME]: function(value) {
     const errorMessage = validator.validateIsNotEmpty(contactFormConfig[LAST_NAME].label, value)
-    //setErrorMessage(LAST_NAME, errorMessage);  
     return errorMessage;
   },
   [EMAIL]: function(value) {
@@ -33,7 +31,6 @@ export const contactFieldValidator = {
     if (errorMessage == null) {
       errorMessage = validator.validateEmail(value)
     }
-    //setErrorMessage(EMAIL, errorMessage);  
     return errorMessage;
   },
   validateAllFields(formData) {
