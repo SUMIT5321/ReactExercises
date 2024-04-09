@@ -23,8 +23,10 @@ export const ContactForm = ({ addContact }) => {
 
   const submitAction = (event) => {
     event.preventDefault();
-    setErrorMessages(contactFieldValidator.validateAllFields(formData))
-    const areAllErrorFieldsNull = Object.keys(errorMessages).every(key => errorMessages[key] === null)
+    const errorMsgs = contactFieldValidator.validateAllFields(formData);
+    setErrorMessages(errorMsgs);
+    
+    const areAllErrorFieldsNull = Object.keys(errorMsgs).every(key => errorMsgs[key] === null)
     if (areAllErrorFieldsNull) {
       formData.id = getUniqueId();
       addContact(formData);
