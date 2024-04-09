@@ -26,8 +26,8 @@ export const ContactForm = ({ addContact }) => {
     const errorMsgs = contactFieldValidator.validateAllFields(formData);
     setErrorMessages(errorMsgs);
     
-    const areAllErrorFieldsNull = Object.keys(errorMsgs).every(key => errorMsgs[key] === null)
-    if (areAllErrorFieldsNull) {
+    const noError = Object.keys(errorMsgs).every(key => Boolean(errorMsgs[key]))
+    if (noError) {
       formData.id = uuidv4();
       addContact(formData);
       setFormData({})

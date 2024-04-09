@@ -19,16 +19,16 @@ export const contactFormConfig = {
 
 export const contactFieldValidator = {
   [FIRST_NAME]: function(value) {
-    const errorMessage = validator.validateIsNotEmpty(contactFormConfig[FIRST_NAME].label, value)
+    const errorMessage = validator.presence(contactFormConfig[FIRST_NAME].label, value)
     return errorMessage;
   },
   [LAST_NAME]: function(value) {
-    const errorMessage = validator.validateIsNotEmpty(contactFormConfig[LAST_NAME].label, value)
+    const errorMessage = validator.presence(contactFormConfig[LAST_NAME].label, value)
     return errorMessage;
   },
   [EMAIL]: function(value) {
-    let errorMessage = validator.validateIsNotEmpty(contactFormConfig[EMAIL].label, value)
-    if (errorMessage == null) {
+    let errorMessage = validator.presence(contactFormConfig[EMAIL].label, value)
+    if (!Boolean(errorMessage)) {
       errorMessage = validator.validateEmail(value)
     }
     return errorMessage;
