@@ -17,12 +17,10 @@ function App() {
     setContactList(list => list.filter(item => id !== item.id))
   }, []);
 
-  const listToShow = useMemo(() => {
-    return contactList.filter(contact => {
-      const contactText = `${contact.firstName} ${contact.lastName} ${contact.email}`.toLowerCase();
-      return contactText.includes(searchTerm.toLowerCase())
-    })
-  }, [contactList, searchTerm])
+  const listToShow = useMemo(() => contactList.filter(({firstName, lastName, email}) => {
+    const contactText = `${firstName} ${lastName} ${email}`.toLowerCase();
+    return contactText.includes(searchTerm.toLowerCase())
+  }), [contactList, searchTerm])
 
   return (
     <div className='container'>
