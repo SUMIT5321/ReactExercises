@@ -2,7 +2,7 @@ import { InputTextBox } from "./InputTextBox";
 import { EMAIL, FIRST_NAME, LAST_NAME, contactFieldValidator } from "../config/contactFormConfig";
 import { useCallback, useState } from "react";
 import PropTypes from "prop-types"
-import getUniqueId from "../utils/newId"
+import { v4 as uuidv4 } from "uuid"
 
 export const ContactForm = ({ addContact }) => {
   const [formData, setFormData] = useState({});
@@ -28,7 +28,7 @@ export const ContactForm = ({ addContact }) => {
     
     const areAllErrorFieldsNull = Object.keys(errorMsgs).every(key => errorMsgs[key] === null)
     if (areAllErrorFieldsNull) {
-      formData.id = getUniqueId();
+      formData.id = uuidv4();
       addContact(formData);
       setFormData({})
     }
