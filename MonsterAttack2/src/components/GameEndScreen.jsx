@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-export const GameEndScreen = ({winner, startGame}) => {
+export const GameEndScreen = ({ winner, startGame }) => {
   return <div className="centerContent">
     <h1>Monster Attack</h1>
     <h2>Game Over</h2>

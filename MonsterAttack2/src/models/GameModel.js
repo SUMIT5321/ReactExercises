@@ -8,8 +8,8 @@ export class GameModel {
     this.monster = new Monster({ health: this.maxHealth, attackRange: gameConfig.participants.monster.attackDamageRange });
     this.player = new Player({
       health: this.maxHealth,
-      attackRange: gameConfig.participants.player.attackDamageRange, 
-      specialAttackRange: gameConfig.participants.player.specialAttackDamageRange, 
+      attackRange: gameConfig.participants.player.attackDamageRange,
+      specialAttackRange: gameConfig.participants.player.specialAttackDamageRange,
       heal: gameConfig.participants.player.heal,
       canSpecialAttack: gameConfig.participants.player.canSpecialAttack
     })

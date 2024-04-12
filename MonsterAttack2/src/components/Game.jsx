@@ -18,7 +18,7 @@ export const Game = () => {
 
   const updateGameStatus = useCallback(() => {
     setGameStatus(status => ({
-      ...status, 
+      ...status,
       currentState: gameModel.gameState,
       playerHealth: gameModel.player.health,
       monsterHealth: gameModel.monster.health
@@ -54,7 +54,7 @@ export const Game = () => {
     gameModel.startGame();
     updateGameStatus()
   }, [gameModel, updateGameStatus]);
-  
+
   switch (gameStatus.currentState) {
     case gameConfig.gameStates.inProgress:
       return <>
@@ -62,13 +62,13 @@ export const Game = () => {
           <ParticipantHealth label={gameModel.monster.label} health={gameStatus.monsterHealth} />
           <ParticipantHealth label={gameModel.player.label} health={gameStatus.playerHealth} />
         </div>
-        <ActionPanel 
-          monsterAttack={monsterAttack} 
-          playerAttack={playerAttack} 
-          playerSpecialAttack={playerSpecialAttack} 
-          heal={heal} 
+        <ActionPanel
+          monsterAttack={monsterAttack}
+          playerAttack={playerAttack}
+          playerSpecialAttack={playerSpecialAttack}
+          heal={heal}
           giveup={giveup} />
-        <MovesPanel moves={gameModel.player.moves}/>
+        <MovesPanel moves={gameModel.player.moves} />
       </>
     case gameConfig.gameStates.gameOver:
       return <GameEndScreen winner={gameModel.winner} startGame={startGame} />
@@ -78,9 +78,9 @@ export const Game = () => {
 }
 
 Game.propTypes = {
-  maxHealth: PropTypes.number, 
-  monsterAttackRange: PropTypes.array, 
-  playerAttackRange: PropTypes.array, 
-  playerSpecialAttackRange: PropTypes.array, 
+  maxHealth: PropTypes.number,
+  monsterAttackRange: PropTypes.array,
+  playerAttackRange: PropTypes.array,
+  playerSpecialAttackRange: PropTypes.array,
   playerHeal: PropTypes.number
 }
