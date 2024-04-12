@@ -16,21 +16,15 @@ export const UserForm = () => {
     setFormData(data => ({
       ...data, [id]: value
     }))
-    userFieldValidator[id](value, setErrorMessage)
   }, [])
-
-  const setErrorMessage = (id, errorMessage) => {
-    console.log(`id: ${id} errorMsg: ${errorMessage}`)
-    setErrorMessages(messages => ({
-      ...messages, [id]: errorMessage
-    }))
-  }
 
   const submitAction = useCallback((event) => {
     event.preventDefault();
     setFormData(data => {
-      const areAllFieldsValid = userFieldValidator.validateAllFields(data, setErrorMessage);
-      return areAllFieldsValid ? {} : data;
+      const errorMessages = userFieldValidator.validateAllFields(data);
+      setErrorMessages(errorMessages);
+      const hasNoError = Object.keys(errorMessages).every(key => !Boolean(errorMessages[key]));
+      return hasNoError ? {} : data;
     })
   },[])
 

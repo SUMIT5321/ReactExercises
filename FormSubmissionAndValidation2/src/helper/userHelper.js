@@ -37,53 +37,45 @@ export const userFormConfig = {
 }
 
 export const userFieldValidator = {
-  [USER_ID]: function(value, setErrorMessage) {
+  [USER_ID]: function(value) {
     const errorMessage = !validator.validateTextLength(value) ? formatText(localizableStrings.emptyErrorMessage, userFormConfig[USER_ID].label) : null
-    console.log(errorMessage)
-    setErrorMessage(USER_ID, errorMessage)
-    return errorMessage == null
+    return errorMessage
   },
-  [EMAIL]: function(value, setErrorMessage) {
+  [EMAIL]: function(value) {
     const errorMessage = (!validator.validateTextLength(value)) ? formatText(localizableStrings.emptyErrorMessage, userFormConfig[EMAIL].label)
         : (!validator.validateEmail(value)) ? localizableStrings.invalidEmailError : null
-    setErrorMessage(EMAIL, errorMessage);  
-    return errorMessage == null
+    return errorMessage;
   },
-  [NAME]: function(value, setErrorMessage) {
+  [NAME]: function(value) {
     const errorMessage = !validator.validateTextLength(value) ? formatText(localizableStrings.emptyErrorMessage, userFormConfig[NAME].label) : null
-    setErrorMessage(NAME, errorMessage);  
-    return errorMessage == null
+    return errorMessage
   },
-  [TIME_ZONE]: function(value, setErrorMessage) {
+  [TIME_ZONE]: function(value) {
     const errorMessage = (!validator.validateTextLength(value)) ? localizableStrings.unselectedTimeZoneError : null
-    setErrorMessage(TIME_ZONE, errorMessage)
-    return errorMessage == null
+    return errorMessage
   },
-  [HOME_PAGE]: function(value, setErrorMessage) {
+  [HOME_PAGE]: function(value) {
     const errorMessage = (!validator.validateTextLength(value)) ? formatText(localizableStrings.emptyErrorMessage, userFormConfig[HOME_PAGE].label)
         : (!validator.validateUrl(value)) ? localizableStrings.invalidHomeUrlError : null
-
-    setErrorMessage(HOME_PAGE, errorMessage)
-    return errorMessage == null
+    return errorMessage
   },
-  [ABOUT_ME]: function(value, setErrorMessage) {
+  [ABOUT_ME]: function(value) {
     const errorMessage = (!validator.validateTextLength(value, userFormConfig[ABOUT_ME].minLength)) ? localizableStrings.aboutMeLengthErrorMessage : null
-    setErrorMessage(ABOUT_ME, errorMessage)
-    return errorMessage == null
+    return errorMessage
   },
-  [RECEIVE_COMMENT_NOTIFICATION]: function(value, setErrorMessage) {
+  [RECEIVE_COMMENT_NOTIFICATION]: function(value) {
     const errorMessage = value === false ? localizableStrings.receiveCommentsNotificationErrorMessage : null
-    setErrorMessage(RECEIVE_COMMENT_NOTIFICATION, errorMessage)
-    return errorMessage == null
+    return errorMessage;
   },
-  validateAllFields(formData, setErrorMessage) {
-    console.log(formData)
-    return this[USER_ID](formData[USER_ID], setErrorMessage) &
-      this[EMAIL](formData[EMAIL], setErrorMessage) &
-      this[NAME](formData[NAME], setErrorMessage) &
-      this[TIME_ZONE](formData[TIME_ZONE], setErrorMessage) &
-      this[HOME_PAGE](formData[HOME_PAGE], setErrorMessage) &
-      this[ABOUT_ME](formData[ABOUT_ME], setErrorMessage) &
-      this[RECEIVE_COMMENT_NOTIFICATION](formData[RECEIVE_COMMENT_NOTIFICATION], setErrorMessage);
+  validateAllFields(formData) {
+    return {
+      [USER_ID]: this[USER_ID](formData[USER_ID]),
+      [EMAIL]: this[EMAIL](formData[EMAIL]),
+      [NAME]: this[NAME](formData[NAME]),
+      [TIME_ZONE]: this[TIME_ZONE](formData[TIME_ZONE]),
+      [HOME_PAGE]: this[HOME_PAGE](formData[HOME_PAGE]),
+      [ABOUT_ME]: this[ABOUT_ME](formData[ABOUT_ME]),
+      [RECEIVE_COMMENT_NOTIFICATION]: this[RECEIVE_COMMENT_NOTIFICATION](formData[RECEIVE_COMMENT_NOTIFICATION])
+    };
   }
 }
