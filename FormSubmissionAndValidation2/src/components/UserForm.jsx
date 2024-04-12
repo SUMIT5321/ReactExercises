@@ -33,9 +33,7 @@ export const UserForm = () => {
       <div className="innerContainer">
         <div className="header">Registration Form</div>
         <form>
-          <InputTextBox fieldId={USER_ID} value={formData[USER_ID]} errorMessage={errorMessages[USER_ID]} updateValue={updateField}/>
-          <InputTextBox fieldId={EMAIL} value={formData[EMAIL]} errorMessage={errorMessages[EMAIL]} updateValue={updateField}/>
-          <InputTextBox fieldId={NAME} value={formData[NAME]} errorMessage={errorMessages[NAME]} updateValue={updateField}/>
+          {[USER_ID, EMAIL, NAME].map(id => <InputTextBox key={id} fieldId={id} value={formData[id]} errorMessage={errorMessages[id]} updateValue={updateField}/>)}
           <DropDownBox fieldId={TIME_ZONE} options={timeZones} value={formData[TIME_ZONE]} errorMessage={errorMessages[TIME_ZONE]} updateValue={updateField}/>
           <InputTextBox fieldId={HOME_PAGE} value={formData[HOME_PAGE]} errorMessage={errorMessages[HOME_PAGE]} updateValue={updateField}/>
           <TextAreaBox fieldId={ABOUT_ME} value={formData[ABOUT_ME]} errorMessage={errorMessages[ABOUT_ME]} updateValue={updateField}/>
