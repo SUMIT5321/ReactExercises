@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-export const Salutation = ({salutation, receiverName}) => {
+export const Salutation = ({ salutation, receiverName }) => {
   return <>
     {salutation} {receiverName},
   </>

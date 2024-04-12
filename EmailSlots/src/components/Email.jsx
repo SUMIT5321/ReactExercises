@@ -3,11 +3,11 @@ import { Salutation } from "./Salutation";
 import PropTypes from "prop-types"
 
 export const Email = ({
-  receiverName="Sir", 
-  senderName="Anonymous", 
-  salutation="Hi", 
-  regards="Regards",
-  children}) => {
+  receiverName = "Sir",
+  senderName = "Anonymous",
+  salutation = "Hi",
+  regards = "Regards",
+  children }) => {
 
 
   return <div>

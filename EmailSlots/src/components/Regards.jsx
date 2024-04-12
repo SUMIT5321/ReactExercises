@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
 
-export const Regards = ({regards, senderName}) => {
+export const Regards = ({ regards, senderName }) => {
   return <>
-    {regards}, <br/> {senderName}
+    {regards}, <br /> {senderName}
   </>
 }
 
