@@ -17,7 +17,7 @@ function App() {
     setContactList(list => list.filter(item => id !== item.id))
   };
 
-  const listToShow = useMemo(() => contactList.filter(({firstName, lastName, email}) => {
+  const listToShow = useMemo(() => contactList.filter(({ firstName, lastName, email }) => {
     const contactText = `${firstName} ${lastName} ${email}`.toLowerCase();
     return contactText.includes(searchTerm.toLowerCase())
   }), [contactList, searchTerm])
@@ -26,7 +26,7 @@ function App() {
     <div className='container'>
       <div className='innerContainer'>
         <Search searchTerm={searchTerm} updateSearchTerm={setSearchTerm} />
-        <ContactForm addContact={addContact}/>
+        <ContactForm addContact={addContact} />
         <ContactList contactList={listToShow} deleteContact={deleteContact} />
       </div>
     </div>
