@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.innerContainer {
+  width: 600px;
+  height: 800px;
+  padding-bottom: 32px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  height: 16px;
+}
+
+.toolbar {
+  background-color: #EAE9FF;
+  padding: 12px;
+}
+
+.form {
+  background-color: #F2F2F2;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  margin-top: 8px;
+}
+
+.inputField {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px 8px;
+}
+
+.customButton {
+  width: 120px;
+  color: white;
+  background-color: #4CAF50;
+  margin-top: 12px;
+  border-width: 0px;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 48%;
+  transition: .3s;
+  margin-top: 24px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.image {
+  width: 100%;
+  height: fit-content;
+  background-color: #4A8DAF;
+  padding: 20px 50px
+}
+
+.cardContentContainer {
+  padding: 8px;
+  display: flex;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.email {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.gridList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search {
+  padding: 6px 8px;
+}
+
+.fullAvailableWidth {
+  flex-grow: 1;
+}
+
+.imageButton {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
