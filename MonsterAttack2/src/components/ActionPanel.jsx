@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 
 export const ActionPanel = React.memo(function ActionPanel({ monsterAttack, playerAttack, playerSpecialAttack, heal, giveup }) {
-  console.log("from action panel");
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       monsterAttack()
