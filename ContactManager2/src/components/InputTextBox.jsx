@@ -7,9 +7,9 @@ export const InputTextBox = ({ fieldId, value, errorMessage, updateValue }) => {
   return <>
     <div>
       <div className="label">{fieldLabel}<span className="error">*</span></div>
-      <input 
+      <input
         className="inputField"
-        type="text" 
+        type="text"
         value={value || ""}
         onChange={(event) => updateValue(fieldId, event.target.value)} />
       <ErrorMessage message={errorMessage} />
