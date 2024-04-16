@@ -1,5 +1,5 @@
 import { localizableStrings } from "../utils/localizableStrings"
-import formatText from "../utils/stringUtils";
+import formatText from "../utils/strings";
 import validator from "../utils/validator";
 
 export const USER_ID = "userId",
