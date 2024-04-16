@@ -26,8 +26,8 @@ export const CheckBox = React.memo(function CheckBox({ fieldId, value, errorMess
 })
 
 CheckBox.propTypes = {
-  fieldId: PropTypes.string,
+  fieldId: PropTypes.string.isRequired,
   value: PropTypes.bool,
   errorMessage: PropTypes.string,
-  updateValue: PropTypes.func
+  updateValue: PropTypes.func.isRequired
 }

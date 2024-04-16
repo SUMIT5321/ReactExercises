@@ -22,8 +22,8 @@ export const InputTextBox = React.memo(function InputTextBox({ fieldId, value, e
 })
 
 InputTextBox.propTypes = {
-  fieldId: PropTypes.string,
+  fieldId: PropTypes.string.isRequired,
   value: PropTypes.string,
   errorMessage: PropTypes.string,
-  updateValue: PropTypes.func
+  updateValue: PropTypes.func.isRequired
 }

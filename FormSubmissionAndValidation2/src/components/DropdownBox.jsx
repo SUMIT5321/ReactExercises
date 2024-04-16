@@ -28,9 +28,9 @@ export const DropDownBox = React.memo(function DropDownBox({ fieldId, options, v
 })
 
 DropDownBox.propTypes = {
-  fieldId: PropTypes.string,
-  options: PropTypes.array,
+  fieldId: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
   value: PropTypes.string,
   errorMessage: PropTypes.string,
-  updateValue: PropTypes.func
+  updateValue: PropTypes.func.isRequired
 }

@@ -12,6 +12,6 @@ export const CustomButton = React.memo(function CustomButton(props) {
 })
 
 CustomButton.propTypes = {
-  text: PropTypes.string,
-  action: PropTypes.func
+  text: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired
 }

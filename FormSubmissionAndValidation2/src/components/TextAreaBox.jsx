@@ -21,8 +21,8 @@ export const TextAreaBox = React.memo(function TextAreaBox({ fieldId, value, err
 })
 
 TextAreaBox.propTypes = {
-  fieldId: PropTypes.string,
+  fieldId: PropTypes.string.isRequired,
   value: PropTypes.string,
   errorMessage: PropTypes.string,
-  updateValue: PropTypes.func
+  updateValue: PropTypes.func.isRequired
 }
