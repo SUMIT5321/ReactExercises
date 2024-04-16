@@ -9,17 +9,17 @@ export const DropDownBox = React.memo(function DropDownBox({ fieldId, options, v
   const optionElements = options.map((option) => {
     return <option key={option} value={option} >{option}</option>
   })
-  optionElements.splice(0,0, <option key="placeholder" value="" disabled hidden>Choose time zones</option>)
+  optionElements.splice(0, 0, <option key="placeholder" value="" disabled hidden>Choose time zones</option>)
 
   return <>
     <div className="formRow">
       <div className="label">{label}</div>
       <div>
-        <select className="dropdown" 
-          data-inputfield="timeZone" 
+        <select className="dropdown"
+          data-inputfield="timeZone"
           onChange={(event) => updateValue(fieldId, event.target.value)}
           value={value || ""}>
-            {optionElements}
+          {optionElements}
         </select>
         <ErrorMessage message={errorMessage} />
       </div>
