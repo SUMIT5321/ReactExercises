@@ -2,9 +2,9 @@ import { InputTextBox } from "./InputTextBox"
 import { DropDownBox } from "./DropdownBox";
 import timeZones from "../utils/timeZones";
 import { TextAreaBox } from "./TextAreaBox";
-import { CheckBox } from "./CheckBox";
+import CheckBox from "./CheckBox";
 import { localizableStrings } from "../utils/localizableStrings";
-import { CustomButton } from "./CustomButton";
+import CustomButton from "./CustomButton";
 import { useCallback, useState } from "react";
 import { ABOUT_ME, EMAIL, HOME_PAGE, NAME, RECEIVE_COMMENT_NOTIFICATION, TIME_ZONE, USER_ID, userFieldValidator } from "../helper/userHelper";
 
