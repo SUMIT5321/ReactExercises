@@ -6,14 +6,12 @@ import { userFormConfig } from "../helper/userHelper";
 const CheckBox = React.memo(function CheckBox({ fieldId, value, errorMessage, updateValue }) {
   const { label, message } = userFormConfig[fieldId];
 
-  //const checked = value || false;
   return <>
     <div className="checkbox">
       <input
         id={label}
         type="checkbox"
         data-inputfield="receiveNotification"
-        
         onChange={event => updateValue(fieldId, event.target.checked)}
         checked={value || false}
       />
