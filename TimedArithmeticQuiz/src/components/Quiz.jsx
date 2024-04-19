@@ -32,7 +32,7 @@ const Quiz = () => {
       ...quiz,
       state: isLastQuestion ? quizState.complete : quiz.state,
       currentQuestionIndex: isLastQuestion ? quiz.currentQuestionIndex : quiz.currentQuestionIndex + 1,
-      score: quiz.score + isCorrectResponse ? 1 : 0
+      score: quiz.score + (isCorrectResponse ? 1 : 0)
     })
     setQuestions(
       [
