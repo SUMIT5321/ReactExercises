@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { QuizHeader } from "./components/QuizHeader"
 import { quizConfig } from "./data/quizConfig"
 import { Question } from "./components/Question";
@@ -13,14 +13,15 @@ function App() {
   const [currentQuestionIndex, setCurrrentQuestionIndex] = useState(0);
   const [enteredAnswer, setEnteredAnswer] = useState("");
 
-  const initialized = useRef(false);
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-    
     quiz.startQuiz();
     setCurrrentQuestionIndex(quiz.getCurrentIndex());
-  }, []);
+
+    return () => {
+      quiz.endQuiz()
+      setCurrrentQuestionIndex(0);
+    }
+  }, [quiz]);
   
 
   const onNextClick = useCallback(function onNextClick(timedOut = false) {

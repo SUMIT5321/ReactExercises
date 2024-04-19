@@ -15,6 +15,11 @@ export class Quiz {
     this.quizState = quizState.running;
   }
 
+  endQuiz() {
+    this.questions = []
+    this.quizState = quizState.notStarted
+  }
+
   createQuestion() {
     const [min, max] = this.numberRange
     const firstNumber = getRandomNumInInterval(min, max);

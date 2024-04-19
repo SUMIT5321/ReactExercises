@@ -2,11 +2,11 @@ import React from "react";
 import { quizConfig } from "../data/quizConfig";
 import PropTypes from "prop-types"
 
-export const QuizHeader = React.memo(function QuizHeader({score}) {
+export const QuizHeader = React.memo(function QuizHeader({ score }) {
   const numberRange = quizConfig.numberRange
   const perQuestionTimeInSecs = quizConfig.perQuestionTimeInSecs
   const totalQuestionCount = quizConfig.totalQuestionCount
-  
+
   return <div>
     <h1>Arithmetic Quiz</h1>
     Number Range: {`${numberRange[0]}-${numberRange[1]}`} |
