@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
-import React from "react";
 
-const ParticipantHealth = React.memo(function ParticipantHealth({ label, health }) {
+const ParticipantHealth = ({ label, health }) => {
   return (
     <div className="health-wrapper">
       <h4>{label}</h4>
@@ -11,7 +10,7 @@ const ParticipantHealth = React.memo(function ParticipantHealth({ label, health 
       </div>
     </div>
   );
-})
+}
 
 ParticipantHealth.propTypes = {
   label: PropTypes.string.isRequired,
