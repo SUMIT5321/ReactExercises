@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { quizConfig } from "../data/quizConfig";
 import PropTypes from "prop-types";
 
-const QuestionHeader = React.memo(function QuestionHeader({ questionNumber, onCountDownEnd }) {
+const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
   const [secondsLeft, setSecondsLeft] = useState(quizConfig.perQuestionTimeInSecs);
   const [countDownCompleted, setCountDownCompleted] = useState(false);
 
@@ -34,7 +34,7 @@ const QuestionHeader = React.memo(function QuestionHeader({ questionNumber, onCo
     &nbsp;|&nbsp;
     <h4>Time left: {secondsLeft}</h4>
   </div>
-})
+}
 
 QuestionHeader.propTypes = {
   questionNumber: PropTypes.number.isRequired,
