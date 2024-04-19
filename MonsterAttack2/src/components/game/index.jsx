@@ -69,7 +69,7 @@ const Game = () => {
   switch (gameStatus.currentState) {
     case gameConfig.gameStates.inProgress:
       return <>
-        <div className='healthPanel'>
+        <div className='health-panel'>
           <ParticipantHealth label={"Monster"} health={gameStatus.monsterHealth} />
           <ParticipantHealth label={"Player"} health={gameStatus.playerHealth} />
         </div>
@@ -91,9 +91,9 @@ const Game = () => {
 //// END GAME COMPONENT ////
 const StartGameScreen = ({ startGame }) => {
   return (
-    <div className="centerContent">
+    <div className="center-content">
       <h1>Monster Attack</h1>
-      <button className="actionButton" onClick={() => startGame()}>Start Game</button>
+      <button className="action-button" onClick={() => startGame()}>Start Game</button>
     </div>
   );
 };
@@ -104,11 +104,11 @@ StartGameScreen.propTypes = {
 //// START GAME COMPONENT ////
 const GameEndScreen = ({ winner, startGame }) => {
   return (
-    <div className="centerContent">
+    <div className="center-content">
       <h1>Monster Attack</h1>
       <h2>Game Over</h2>
       <h3>Winner: {winner}</h3>
-      <button className="actionButton" onClick={() => startGame()}>Start Again</button>
+      <button className="action-button" onClick={() => startGame()}>Start Again</button>
     </div>
   )
 };

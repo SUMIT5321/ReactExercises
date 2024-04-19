@@ -3,10 +3,10 @@ import React from "react";
 
 const ParticipantHealth = React.memo(function ParticipantHealth({ label, health }) {
   return (
-    <div className="healthWrapper">
+    <div className="health-wrapper">
       <h4>{label}</h4>
-      <div className="healthBar">
-        <div className="healthLevel" style={{ width: `${health}%` }} />
+      <div className="health-bar">
+        <div className="health-level" style={{ width: `${health}%` }} />
         <div className="centered">{health}</div>
       </div>
     </div>

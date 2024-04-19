@@ -15,11 +15,11 @@ const ActionPanel = ({ onMonsterAttack, onPlayerAttack, onPlayerSpecialAttack, o
   }, [onMonsterAttack]);
 
   return (
-    <div className="actionPanel">
-      <button className="actionButton" onClick={() => onPlayerAttack()}>Attack</button>
-      <button className="actionButton backgroundSAttack" onClick={() => onPlayerSpecialAttack()}>Special Attack</button>
-      <button className="actionButton backgroundHeal" onClick={() => onHeal()}>Heal</button>
-      <button className="actionButton backgroundGiveup" onClick={() => onGiveup()}>Give up</button>
+    <div className="action-panel">
+      <button className="action-button" onClick={() => onPlayerAttack()}>Attack</button>
+      <button className="action-button background-special-attack" onClick={() => onPlayerSpecialAttack()}>Special Attack</button>
+      <button className="action-button background-heal" onClick={() => onHeal()}>Heal</button>
+      <button className="action-button background-giveup" onClick={() => onGiveup()}>Give up</button>
     </div>
   );
 }
