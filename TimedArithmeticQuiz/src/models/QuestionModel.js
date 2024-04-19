@@ -1,10 +1,10 @@
-import newId from "../utility/newId"
 import { areNumbersClose } from "../utility/numberUtils";
+import {v4 as uuidv4} from "uuid";
 
 export class QuestionModel {
   constructor(index, firstNumnber, secondNumber, operator) {
     this.index = index;
-    this.id = newId();
+    this.id = uuidv4();
     this.firstNumnber = firstNumnber;
     this.secondNumber = secondNumber;
     this.operator = operator;
