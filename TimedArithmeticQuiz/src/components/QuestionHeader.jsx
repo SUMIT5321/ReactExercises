@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { quizConfig } from "../data/quizConfig";
 import PropTypes from "prop-types";
 
-export const QuestionHeader = React.memo(function QuestionHeader({ questionNumber, onCountDownEnd }) {
+const QuestionHeader = React.memo(function QuestionHeader({ questionNumber, onCountDownEnd }) {
   const [secondsLeft, setSecondsLeft] = useState(quizConfig.perQuestionTimeInSecs);
   const [countDownCompleted, setCountDownCompleted] = useState(false);
 
@@ -40,3 +40,5 @@ QuestionHeader.propTypes = {
   questionNumber: PropTypes.number.isRequired,
   onCountDownEnd: PropTypes.func.isRequired
 }
+
+export default QuestionHeader

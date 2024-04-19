@@ -6,3 +6,8 @@ export const quizConfig = {
   pointPerCorrectAnswer: 1,
   pointPerWrongAnswer: 0,
 }
+
+export const quizState = {
+  running: 0,
+  complete: 1
+}

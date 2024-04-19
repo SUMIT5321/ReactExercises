@@ -2,7 +2,7 @@ import React from "react";
 import { quizConfig } from "../data/quizConfig";
 import PropTypes from "prop-types"
 
-export const QuizHeader = React.memo(function QuizHeader({ score }) {
+const QuizHeader = React.memo(function QuizHeader({ score }) {
   const { numberRange, perQuestionTimeInSecs, totalQuestionCount } = quizConfig
 
   return (
@@ -19,3 +19,5 @@ export const QuizHeader = React.memo(function QuizHeader({ score }) {
 QuizHeader.propTypes = {
   score: PropTypes.number.isRequired
 }
+
+export default QuizHeader

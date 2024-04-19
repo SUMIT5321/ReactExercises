@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
-import { ResponseList } from "./ResponseList"
-import { QuizHeader } from "./QuizHeader"
+import ResponseList from "./ResponseList"
+import QuizHeader from "./QuizHeader"
 import { questionPropType } from "../lib/PropTypeValues"
 
-export const QuizComplete = ({correctAnswerQuestions, wrongAnswerQuestions, score}) => {
+const QuizComplete = ({correctAnswerQuestions, wrongAnswerQuestions, score}) => {
   return <div>
     <QuizHeader score={score} />
     <ResponseList correctAnswers list={correctAnswerQuestions} />
@@ -16,3 +16,5 @@ QuizComplete.propTypes = {
   wrongAnswerQuestions: PropTypes.arrayOf(questionPropType).isRequired,
   score: PropTypes.number.isRequired
 }
+
+export default QuizComplete

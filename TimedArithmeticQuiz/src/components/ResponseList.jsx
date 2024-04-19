@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
 import { formatNumber } from "../utility/numberUtils"
 import { questionPropType } from "../lib/PropTypeValues"
+import { QuestionHelper } from "../helpers/QuestionHelper"
 
-export const ResponseList = ({ correctAnswers = false, list }) => {
+const ResponseList = ({ correctAnswers = false, list }) => {
   const header = <h3 className="margin-top-24">{correctAnswers ? "Correct Answers" : "Wrong Answers"}</h3>
   if (list.length === 0) return (
     <>
@@ -15,9 +16,9 @@ export const ResponseList = ({ correctAnswers = false, list }) => {
     return (
       <tr key={question.id}>
         <td>{question.index}</td>
-        <td>{question.getStringExpression()}</td>
-        <td>{question.response ? question.response : "NA"}</td>
-        <td>{formatNumber(question.getAnswer())}</td>
+        <td>{QuestionHelper.getStringExpression(question)}</td>
+        <td>{question.receivedAnswer ? question.receivedAnswer : "NA"}</td>
+        <td>{formatNumber(question.expectedAnswer)}</td>
       </tr>
     )
   })
@@ -45,3 +46,5 @@ ResponseList.propTypes = {
   correctAnswers: PropTypes.bool,
   list: PropTypes.arrayOf(questionPropType).isRequired
 }
+
+export default ResponseList
