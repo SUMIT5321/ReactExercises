@@ -43,3 +43,7 @@ tr:nth-child(even) {
 .questionExpression {
   width: 70px
 }
+
+button:disabled {
+  opacity: .5;
+}
