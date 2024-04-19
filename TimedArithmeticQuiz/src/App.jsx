@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { QuizHeader } from "./components/QuizHeader"
 import { quizConfig } from "./data/quizConfig"
 import { Question } from "./components/Question";
-import { Quiz } from "./models/Quiz";
+import { Quiz } from "./models/QuizModel";
 import { QuestionHeader } from "./components/QuestionHeader";
 import { QuizComplete } from "./components/QuizComplete";
 
@@ -40,7 +40,7 @@ function App() {
     const wrongList = quiz.questions.filter(question => !question.isCorrect);
     return <QuizComplete correctAnswerQuestions={correctList} wrongAnswerQuestions={wrongList} score={score} />
   }
-  
+
   const questionComponent = quiz.getCurrentQuestion() ? <Question 
     questionExpression={quiz.getCurrentQuestion().getStringExpression()} 
     enteredAnswer={enteredAnswer}
