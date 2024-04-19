@@ -30,7 +30,7 @@ tr:nth-child(even) {
   margin-top: 12px;
 }
 
-.questionHeader {
+.question-header {
   display: flex;
   justify-content: flex-start;
 }
@@ -40,7 +40,7 @@ tr:nth-child(even) {
   justify-content: flex-start;
 }
 
-.questionExpression {
+.questione-expression {
   width: 70px
 }
 

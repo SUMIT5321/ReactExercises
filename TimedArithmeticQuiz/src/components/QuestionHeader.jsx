@@ -29,7 +29,7 @@ const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
   }, [questionNumber]);
 
 
-  return <div className="questionHeader margin-top-12">
+  return <div className="question-header margin-top-12">
     <h4>Question number: {questionNumber}</h4>
     &nbsp;|&nbsp;
     <h4>Time left: {secondsLeft}</h4>

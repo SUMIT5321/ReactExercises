@@ -3,7 +3,7 @@ import React from "react";
 
 const Question = React.memo(function Question({ questionExpression, enteredAnswer = "", setEnteredAnswer, onNextClick }) {
   return <div className="question margin-top-12">
-    <div className="questionExpression">{questionExpression} =</div>&nbsp;
+    <div className="question-expression">{questionExpression} =</div>&nbsp;
     <input type="number" value={enteredAnswer} onChange={e => setEnteredAnswer(e.target.value)} />&nbsp;
     <button disabled={!Boolean(enteredAnswer)} onClick={() => onNextClick()}>Next</button>
   </div>
