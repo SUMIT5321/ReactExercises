@@ -17,5 +17,5 @@ export const QuizHeader = React.memo(function QuizHeader({ score }) {
 });
 
 QuizHeader.propTypes = {
-  score: PropTypes.number
+  score: PropTypes.number.isRequired
 }

@@ -12,13 +12,13 @@ export const QuestionHeader = React.memo(function QuestionHeader({ questionNumbe
       onCountDownEnd();
       setCountDownCompleted(false);
     }
-  },[countDownCompleted, onCountDownEnd]);
+  }, [countDownCompleted, onCountDownEnd]);
 
   useEffect(() => {
     setSecondsLeft(quizConfig.perQuestionTimeInSecs);
     const intervalId = setInterval(() => {
       setSecondsLeft(left => {
-        if(left === 1) setCountDownCompleted(true)
+        if (left === 1) setCountDownCompleted(true)
         return left - 1;
       });
     }, 1000);
@@ -37,6 +37,6 @@ export const QuestionHeader = React.memo(function QuestionHeader({ questionNumbe
 })
 
 QuestionHeader.propTypes = {
-  questionNumber: PropTypes.number,
-  onCountDownEnd: PropTypes.func
+  questionNumber: PropTypes.number.isRequired,
+  onCountDownEnd: PropTypes.func.isRequired
 }

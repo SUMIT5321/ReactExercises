@@ -1,12 +1,15 @@
 import PropTypes from "prop-types"
 import { formatNumber } from "../utility/numberUtils"
+import { questionPropType } from "../lib/PropTypeValues"
 
-export const ResponseList = ({ correctAnswers, list }) => {
+export const ResponseList = ({ correctAnswers=false, list }) => {
   const header = correctAnswers ? <h3 className="margin-top-24">Correct Answers</h3> : <h3 className="margin-top-24">Wrong Answers</h3>
-  if (list.length === 0) return <>
-    {header}
-    <div>None</div>
-  </>
+  if (list.length === 0) return (
+    <>
+      {header}
+      <div>None</div>
+    </>
+  )
 
   const responseListUi = list.map((question) => {
     return (
@@ -38,5 +41,5 @@ export const ResponseList = ({ correctAnswers, list }) => {
 
 ResponseList.propTypes = {
   correctAnswers: PropTypes.bool,
-  list: PropTypes.array
+  list: PropTypes.arrayOf(questionPropType).isRequired
 }
