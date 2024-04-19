@@ -68,19 +68,21 @@ const Game = () => {
 
   switch (gameStatus.currentState) {
     case gameConfig.gameStates.inProgress:
-      return <>
-        <div className='health-panel'>
-          <ParticipantHealth label={"Monster"} health={gameStatus.monsterHealth} />
-          <ParticipantHealth label={"Player"} health={gameStatus.playerHealth} />
-        </div>
-        <ActionPanel
-          onMonsterAttack={onMonsterAttack}
-          onPlayerAttack={onPlayerAttack}
-          onPlayerSpecialAttack={onPlayerSpecialAttack}
-          onHeal={onHeal}
-          onGiveup={onGiveup} />
-        <MovesPanel moves={gameStatus.playerMoves} />
-      </>
+      return (
+        <>
+          <div className='health-panel'>
+            <ParticipantHealth label={"Monster"} health={gameStatus.monsterHealth} />
+            <ParticipantHealth label={"Player"} health={gameStatus.playerHealth} />
+          </div>
+          <ActionPanel
+            onMonsterAttack={onMonsterAttack}
+            onPlayerAttack={onPlayerAttack}
+            onPlayerSpecialAttack={onPlayerSpecialAttack}
+            onHeal={onHeal}
+            onGiveup={onGiveup} />
+          <MovesPanel moves={gameStatus.playerMoves} />
+        </>
+      )
     case gameConfig.gameStates.gameOver:
       return <GameEndScreen winner={gameStatus.winner} startGame={onStartGame} />
     default:
