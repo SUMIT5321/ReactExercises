@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 
-
 const ActionPanel = ({ onMonsterAttack, onPlayerAttack, onPlayerSpecialAttack, onHeal, onGiveup }) => {
 
   useEffect(() => {
