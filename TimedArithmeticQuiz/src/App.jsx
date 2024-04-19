@@ -33,35 +33,29 @@ function App() {
     });
     quiz.nextQuestion();
     setCurrrentQuestionIndex(quiz.getCurrentIndex());
-  }, []);
-
-  let body;
+  }, [quiz]);
   
   if (quiz.isQuizComplete()) {
     const correctList = quiz.questions.filter(question => question.isCorrect);
     const wrongList = quiz.questions.filter(question => !question.isCorrect);
-
-    body = <QuizComplete correctAnswerQuestions={correctList} wrongAnswerQuestions={wrongList} score={score} />
-
-  } else {
-    const questionComponent = quiz.getCurrentQuestion() ? <Question 
-      questionExpression={quiz.getCurrentQuestion().getStringExpression()} 
-      enteredAnswer={enteredAnswer}
-      setEnteredAnswer={setEnteredAnswer}
-      onNextClick={onNextClick}
-      /> : null
-    
-      body = <div>
-        <QuizHeader score={score} />
-        <QuestionHeader
-          questionNumber={currentQuestionIndex}
-          onCountDownEnd={onNextClick}
-          />
-        { questionComponent }
-      </div>
+    return <QuizComplete correctAnswerQuestions={correctList} wrongAnswerQuestions={wrongList} score={score} />
   }
   
-  return body;
+  const questionComponent = quiz.getCurrentQuestion() ? <Question 
+    questionExpression={quiz.getCurrentQuestion().getStringExpression()} 
+    enteredAnswer={enteredAnswer}
+    setEnteredAnswer={setEnteredAnswer}
+    onNextClick={onNextClick}
+    /> : null
+  
+  return <div>
+    <QuizHeader score={score} />
+    <QuestionHeader
+      questionNumber={currentQuestionIndex}
+      onCountDownEnd={onNextClick}
+      />
+    { questionComponent }
+  </div>
 }
 
 export default App
