@@ -16,7 +16,7 @@
   justify-content: center;
 }
 
-.innerContainer {
+.inner-container {
   width: 600px;
   background: #eaf2d9;
   padding-bottom: 32px;
@@ -38,7 +38,7 @@ form {
   padding-right: 24px;
 }
 
-.formRow {
+.form-row {
   display: flex;
   justify-content: left;
   margin-top: 12px;
@@ -53,7 +53,7 @@ form {
   font-size: 16px;
 }
 
-.inputText {
+.input-text {
   height: 32px;
   width: 200px;
   background: white;
@@ -102,18 +102,18 @@ form {
   justify-content: center;
 }
 
-.topMargin16 {
+.top-margin-16 {
   margin-top: 16px;
 }
 
-.passwordMessage {
+.password-message {
   display: flex; 
   justify-content: center; 
   margin-top: 48px; 
   font-size: 14px;
 }
 
-.centerContent {
+.center-content {
   display: flex; 
   justify-content: center;
 }
@@ -124,10 +124,10 @@ form {
   height: 16px;
 }
 
-.dummyHeight {
-  height: 16px;
+.checkbox-label {
+  margin-left: 8px;
 }
 
-.checkboxLabel {
-  margin-left: 8px;
+.padding-bottom-16 {
+  padding-bottom: 16px;
 }

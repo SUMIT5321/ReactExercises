@@ -1,4 +1,4 @@
-import { localizableStrings } from "../utils/localizableStrings"
+import { localizableStrings } from "../utils/localizable-strings"
 import formatText from "../utils/strings";
 import validator from "../utils/validator";
 
@@ -64,18 +64,19 @@ export const userFieldValidator = {
     return errorMessage
   },
   [RECEIVE_COMMENT_NOTIFICATION]: function(value) {
-    const errorMessage = value === false ? localizableStrings.receiveCommentsNotificationErrorMessage : null
+    const errorMessage = value ? localizableStrings.receiveCommentsNotificationErrorMessage : null
     return errorMessage;
-  },
-  validateAllFields(formData) {
-    return {
-      [USER_ID]: this[USER_ID](formData[USER_ID]),
-      [EMAIL]: this[EMAIL](formData[EMAIL]),
-      [NAME]: this[NAME](formData[NAME]),
-      [TIME_ZONE]: this[TIME_ZONE](formData[TIME_ZONE]),
-      [HOME_PAGE]: this[HOME_PAGE](formData[HOME_PAGE]),
-      [ABOUT_ME]: this[ABOUT_ME](formData[ABOUT_ME]),
-      [RECEIVE_COMMENT_NOTIFICATION]: this[RECEIVE_COMMENT_NOTIFICATION](formData[RECEIVE_COMMENT_NOTIFICATION])
-    };
   }
+}
+
+export const validateAllFields = (formData) => {
+  return {
+    [USER_ID]: userFieldValidator[USER_ID](formData[USER_ID]),
+    [EMAIL]: userFieldValidator[EMAIL](formData[EMAIL]),
+    [NAME]: userFieldValidator[NAME](formData[NAME]),
+    [TIME_ZONE]: userFieldValidator[TIME_ZONE](formData[TIME_ZONE]),
+    [HOME_PAGE]: userFieldValidator[HOME_PAGE](formData[HOME_PAGE]),
+    [ABOUT_ME]: userFieldValidator[ABOUT_ME](formData[ABOUT_ME]),
+    [RECEIVE_COMMENT_NOTIFICATION]: userFieldValidator[RECEIVE_COMMENT_NOTIFICATION](formData[RECEIVE_COMMENT_NOTIFICATION])
+  };
 }

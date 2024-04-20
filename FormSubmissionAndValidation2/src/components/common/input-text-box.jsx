@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
-import { ErrorMessage } from "./ErrorMessage";
-import { userFormConfig } from "../helper/userHelper";
-import React from "react";
+import ErrorMessage from "./error-message";
+import { userFormConfig } from "../../helper/user-helper";
 
-export const InputTextBox = React.memo(function InputTextBox({ fieldId, value, errorMessage, updateValue }) {
+const InputTextBox = ({ fieldId, value, errorMessage, updateValue }) => {
   const fieldLabel = userFormConfig[fieldId].label;
   return <>
-    <div className="formRow">
+    <div className="form-row">
       <div className="label">{fieldLabel}</div>
-      <div>
+      <div className={errorMessage ? "" : "padding-bottom-16"}>
         <input
-          className="inputText"
+          className="input-text"
           data-inputfield="loginId"
           type="text"
           value={value || ""}
@@ -18,12 +17,14 @@ export const InputTextBox = React.memo(function InputTextBox({ fieldId, value, e
         <ErrorMessage message={errorMessage} />
       </div>
     </div>
-  </>
-})
+  </>;
+};
 
 InputTextBox.propTypes = {
   fieldId: PropTypes.string.isRequired,
   value: PropTypes.string,
   errorMessage: PropTypes.string,
   updateValue: PropTypes.func.isRequired
-}
+};
+
+export default InputTextBox;
