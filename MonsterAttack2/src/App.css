@@ -1,0 +1,92 @@
+.health-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.health-wrapper {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-bar {
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: black;
+  position: relative;
+}
+
+.health-level {
+  width: 1%;
+  height: 100%;
+  height: 30px;
+  background-color: #198754;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.action-panel {
+  margin: auto;
+  width: fit-content;
+  margin-top: 24px;
+}
+
+.action-button {
+  background-color: #FA8072;
+  border-width: 0px;
+  padding: 12px;
+  margin-left: 8px;
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.background-special-attack {
+  background-color: #FFA502;
+}
+
+.background-heal {
+  background-color: #1DB5B8;
+}
+
+.background-giveup {
+  background-color: #FF00FF;
+}
+
+.moves-panel {
+  margin: auto;
+  height: 100px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  padding: 16px;
+  margin-top: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212529;
+  color: white;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
