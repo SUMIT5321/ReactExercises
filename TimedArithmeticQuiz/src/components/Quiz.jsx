@@ -1,46 +1,21 @@
-import { useState } from "react"
-import QuizComplete from "./QuizComplete";
-import Question from "./Question";
-import QuizHeader from "./QuizHeader";
-import QuestionHeader from "./QuestionHeader";
-import { quizConfig, quizState } from "../data/quizConfig"
-import { QuestionHelper } from "../helpers/QuestionHelper";
+import { useState } from "react";
+import QuizComplete from "./quiz-complete";
+import Question from "./question";
+import QuizHeader from "./quiz-header";
+import QuestionHeader from "./question-header";
+import { quizState } from "../data/quiz-config";
+import useQuiz from "../custom-hooks/use-quiz";
 
 
 const Quiz = () => {
   //// states ////
-  const [quiz, setQuiz] = useState({
-    state: quizState.running,
-    currentQuestionIndex: 0,
-    score: 0
-  });
-  const [questions, setQuestions] = useState([QuestionHelper.createQuestion(0)]);
+  const [quiz, questions, checkCurrentQuestionAndGoToNext] = useQuiz();
   const [enteredAnswer, setEnteredAnswer] = useState("");
 
   //// handler ////
   const onNextClick = (timedOut = false) => {
-    const currentQuestion = {
-      ...questions[quiz.currentQuestionIndex],
-      isTimedOut: timedOut,
-      receivedAnswer: enteredAnswer
-    }
-    const isCorrectResponse = QuestionHelper.isResponseCorrect(currentQuestion)
-    const isLastQuestion = quizConfig.totalQuestionCount === quiz.currentQuestionIndex + 1
-
+    checkCurrentQuestionAndGoToNext({ enteredAnswer, timedOut });
     setEnteredAnswer("");
-    setQuiz({
-      ...quiz,
-      state: isLastQuestion ? quizState.complete : quiz.state,
-      currentQuestionIndex: isLastQuestion ? quiz.currentQuestionIndex : quiz.currentQuestionIndex + 1,
-      score: quiz.score + (isCorrectResponse ? 1 : 0)
-    })
-    setQuestions(
-      [
-        ...questions.slice(0, quiz.currentQuestionIndex),
-        { ...currentQuestion, isCorrect: isCorrectResponse },
-        ...isLastQuestion ? [] : [QuestionHelper.createQuestion(quiz.currentQuestionIndex + 1)]
-      ]
-    )
   };
 
   if (quiz.state === quizState.complete) {
@@ -52,15 +27,15 @@ const Quiz = () => {
         wrongAnswerQuestions={wrongList}
         score={quiz.score}
       />
-    )
+    );
   }
 
   const questionComponent = questions.length ? <Question
-    questionExpression={QuestionHelper.getStringExpression(questions[questions.length - 1])}
+    questionExpression={questions[questions.length - 1].stringExpression}
     enteredAnswer={enteredAnswer}
     setEnteredAnswer={setEnteredAnswer}
     onNextClick={onNextClick}
-  /> : null
+  /> : null;
 
   return <div>
     <QuizHeader score={quiz.score} />
@@ -69,7 +44,7 @@ const Quiz = () => {
       onCountDownEnd={onNextClick}
     />
     {questionComponent}
-  </div>
-}
+  </div>;
+};
 
 export default Quiz;

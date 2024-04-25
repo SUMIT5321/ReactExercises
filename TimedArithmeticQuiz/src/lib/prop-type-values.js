@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
 
 export const questionPropType = PropTypes.shape({
@@ -10,5 +10,6 @@ export const questionPropType = PropTypes.shape({
   expectedAnswer: PropTypes.number.isRequired,
   isTimedOut: PropTypes.bool,
   receivedAnswer: PropTypes.string,
-  isCorrect: PropTypes.bool
-})
+  isCorrect: PropTypes.bool,
+  stringExpression: PropTypes.string,
+});

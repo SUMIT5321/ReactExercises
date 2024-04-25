@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { quizConfig } from "../data/quizConfig";
+import { quizConfig } from "../data/quiz-config";
 import PropTypes from "prop-types";
 
 const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
@@ -9,7 +9,7 @@ const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
   useEffect(() => {
     if (countDownCompleted) {
       setSecondsLeft(quizConfig.perQuestionTimeInSecs);
-      onCountDownEnd();
+      onCountDownEnd(true);
       setCountDownCompleted(false);
     }
   }, [countDownCompleted, onCountDownEnd]);
@@ -18,27 +18,29 @@ const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
     setSecondsLeft(quizConfig.perQuestionTimeInSecs);
     const intervalId = setInterval(() => {
       setSecondsLeft(left => {
-        if (left === 1) setCountDownCompleted(true)
+        if (left === 1) setCountDownCompleted(true);
         return left - 1;
       });
     }, 1000);
 
     return () => {
       clearInterval(intervalId);
-    }
+    };
   }, [questionNumber]);
 
 
-  return <div className="question-header margin-top-12">
-    <h4>Question number: {questionNumber}</h4>
-    &nbsp;|&nbsp;
-    <h4>Time left: {secondsLeft}</h4>
-  </div>
-}
+  return (
+    <div className="question-header margin-top-12">
+      <h4>Question number: {questionNumber}</h4>
+      &nbsp;|&nbsp;
+      <h4>Time left: {secondsLeft}</h4>
+    </div>
+  );
+};
 
 QuestionHeader.propTypes = {
   questionNumber: PropTypes.number.isRequired,
   onCountDownEnd: PropTypes.func.isRequired
-}
+};
 
-export default QuestionHeader
+export default QuestionHeader;

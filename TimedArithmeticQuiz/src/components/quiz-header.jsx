@@ -1,8 +1,8 @@
-import { quizConfig } from "../data/quizConfig";
-import PropTypes from "prop-types"
+import { quizConfig } from "../data/quiz-config";
+import PropTypes from "prop-types";
 
 const QuizHeader = ({ score }) => {
-  const { numberRange, perQuestionTimeInSecs, totalQuestionCount } = quizConfig
+  const { numberRange, perQuestionTimeInSecs, totalQuestionCount } = quizConfig;
 
   return (
     <div>
@@ -12,11 +12,11 @@ const QuizHeader = ({ score }) => {
       Time per question: {perQuestionTimeInSecs} secs
       <h3 className="margin-top-12">Score: {score}</h3>
     </div>
-  )
+  );
 };
 
 QuizHeader.propTypes = {
   score: PropTypes.number.isRequired
-}
+};
 
-export default QuizHeader
+export default QuizHeader;
