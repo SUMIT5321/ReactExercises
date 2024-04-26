@@ -1,0 +1,49 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+thead, tbody {
+  border: 1px solid #dddddd;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.question {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.questione-expression {
+  width: 70px
+}
+
+button:disabled {
+  opacity: .5;
+}
