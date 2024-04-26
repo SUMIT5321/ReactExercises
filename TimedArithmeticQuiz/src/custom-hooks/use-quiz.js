@@ -5,13 +5,8 @@ import { areNumbersClose, getRandomNumInInterval } from "../utility/number-utils
 
 const useQuiz = () => {
   //// states ////
-  const [quiz, setQuiz] = useState({
-    state: quizState.running,
-    currentQuestionIndex: 0,
-    score: 0
-  });
+  const [quiz, setQuiz] = useState(defaultQuizValue);
   const [questions, setQuestions] = useState([createQuestion(0)]);
-
 
   function getStringExpression({ firstNumber, secondNumber, operator }) {
     return `${firstNumber} ${operator} ${secondNumber}`;
@@ -88,3 +83,9 @@ const useQuiz = () => {
 };
 
 export default useQuiz;
+
+const defaultQuizValue = {
+  state: quizState.running,
+  currentQuestionIndex: 0,
+  score: 0
+};
