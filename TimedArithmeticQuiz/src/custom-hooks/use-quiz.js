@@ -6,7 +6,7 @@ import { generateId } from "../utility/id-generator";
 const useQuiz = () => {
   //// states ////
   const [quiz, setQuiz] = useState(defaultQuizValue);
-  const [questions, setQuestions] = useState([createQuestion(0)]);
+  const [questions, setQuestions] = useState(() => [createQuestion(0)]);
 
   function getStringExpression({ firstNumber, secondNumber, operator }) {
     return `${firstNumber} ${operator} ${secondNumber}`;
