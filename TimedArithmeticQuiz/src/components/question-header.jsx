@@ -2,20 +2,21 @@ import { useEffect, useState } from "react";
 import { quizConfig } from "../data/quiz-config";
 import PropTypes from "prop-types";
 
+const { perQuestionTimeInSecs } = quizConfig; // defined outside as this constant
 const QuestionHeader = ({ questionNumber, onCountDownEnd }) => {
-  const [secondsLeft, setSecondsLeft] = useState(quizConfig.perQuestionTimeInSecs);
+  const [secondsLeft, setSecondsLeft] = useState(perQuestionTimeInSecs);
   const [countDownCompleted, setCountDownCompleted] = useState(false);
 
   useEffect(() => {
     if (countDownCompleted) {
-      setSecondsLeft(quizConfig.perQuestionTimeInSecs);
+      setSecondsLeft(perQuestionTimeInSecs);
       onCountDownEnd(true);
       setCountDownCompleted(false);
     }
   }, [countDownCompleted, onCountDownEnd]);
 
   useEffect(() => {
-    setSecondsLeft(quizConfig.perQuestionTimeInSecs);
+    setSecondsLeft(perQuestionTimeInSecs);
     const intervalId = setInterval(() => {
       setSecondsLeft(left => {
         if (left === 1) setCountDownCompleted(true);
