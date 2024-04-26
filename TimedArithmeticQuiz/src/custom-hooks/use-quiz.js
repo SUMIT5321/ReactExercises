@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { quizConfig, quizState } from "../data/quiz-config";
 import { areNumbersClose, getRandomNumInInterval } from "../utility/number-utils";
+import { generateId } from "../utility/id-generator";
 
 const useQuiz = () => {
   //// states ////
@@ -37,7 +37,7 @@ const useQuiz = () => {
     const stringExpression = getStringExpression({ firstNumber, secondNumber, operator });
 
     return {
-      id: uuidv4(),
+      id: generateId(),
       index,
       firstNumber,
       secondNumber,
