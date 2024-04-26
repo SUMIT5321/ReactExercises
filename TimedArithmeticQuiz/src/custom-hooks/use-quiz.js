@@ -12,12 +12,12 @@ const useQuiz = () => {
   });
   const [questions, setQuestions] = useState([createQuestion(0)]);
 
-  
+
   function getStringExpression({ firstNumber, secondNumber, operator }) {
     return `${firstNumber} ${operator} ${secondNumber}`;
   }
 
-  function getAnswer ({ firstNumber, secondNumber, operator }) {
+  function getAnswer({ firstNumber, secondNumber, operator }) {
     switch (operator) {
       case "+":
         return firstNumber + secondNumber;
@@ -54,7 +54,7 @@ const useQuiz = () => {
 
   const isResponseCorrect = ({ receivedAnswer, isTimedOut, expectedAnswer }) => {
     return isTimedOut ? false : areNumbersClose(parseFloat(receivedAnswer), expectedAnswer);
-  }
+  };
 
   const checkCurrentQuestionAndGoToNext = ({ enteredAnswer, timedOut }) => {
     const currentQuestion = {
@@ -79,12 +79,12 @@ const useQuiz = () => {
         ...isLastQuestion ? [] : [createQuestion(quiz.currentQuestionIndex + 1)]
       ]
     );
-  }
+  };
 
 
-  return [
+  return {
     quiz, questions, checkCurrentQuestionAndGoToNext
-  ];
+  };
 };
 
 export default useQuiz;

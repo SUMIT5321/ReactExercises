@@ -9,7 +9,7 @@ import useQuiz from "../custom-hooks/use-quiz";
 
 const Quiz = () => {
   //// states ////
-  const [quiz, questions, checkCurrentQuestionAndGoToNext] = useQuiz();
+  const { quiz, questions, checkCurrentQuestionAndGoToNext } = useQuiz();
   const [enteredAnswer, setEnteredAnswer] = useState("");
 
   //// handler ////
